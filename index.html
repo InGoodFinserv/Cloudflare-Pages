@@ -2,8 +2,67 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>InGood — Liquidity First. Investing Next.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>InGood | The Next-Gen Self-Adjusting SIP Platform</title>
+<meta name="description" content="InGood helps you invest surplus funds automatically through a self-adjusting SIP that adapts to your real-life spending patterns. Liquidity-first investing for modern earners." />
+<meta name="keywords" content="ingood, self-adjusting sip, sip automation, liquidity first investing, surplus based investing, index fund investing, automatic sip, cash flow investing, fintech india, smart investing app" />
+<meta name="author" content="InGood Finserv Pvt. Ltd." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#0f7a7a" />
+<link rel="canonical" https://about.ingoodfinserv.workers.dev/" />
+
+<!-- ── GEO & LANGUAGE ── -->
+<meta name="geo.region" content="IN-MH" />
+<meta name="geo.placename" content="Mumbai, Maharashtra, India" />
+<meta name="language" content="English" />
+<meta name="content-language" content="en-IN" />
+
+<!-- ── FAVICON ── -->
+<link rel="icon" type="image/png" sizes="32x32" href="https://ingood.netlify.app/assets/cropped-5.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://ingood.netlify.app/assets/cropped-5.png" />
+<link rel="shortcut icon" href="https://ingood.netlify.app/assets/cropped-5.png" />
+<link rel="manifest" href="https://ingood.netlify.app/assets/cropped-5.png" />  
+
+<!-- ── STRUCTURED DATA (JSON-LD) ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "InGood",
+  "legalName": "InGood Finserv Pvt. Ltd.",
+  "description": "InGood offers a self-adjusting SIP that automatically invests your surplus funds into index funds based on your real-time cash flow and spending patterns.",
+  "slogan": "Liquidity First. Investing Next.",
+  "url": "https://www.ingood.com",
+  "logo": "https://www.ingood.com/assets/logo.png",
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "Mumbai, Maharashtra, India"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mumbai",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "India"
+  },
+  "sameAs": [
+    "https://in.linkedin.com/company/ingood-finserv-private-limited",
+    "https://x.com/IngoodFin",
+    "https://www.instagram.com/ingoodfinserv/",
+    "https://www.facebook.com/people/InGood/61588520924862/"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "availableLanguage": ["English", "Hindi"]
+  }
+}
+</script>
+  
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,600;0,800;1,600;1,800&display=swap" rel="stylesheet"/>
 <style>
   :root {
@@ -259,6 +318,297 @@
   .trust-icon-wrap { width: 46px; height: 46px; border-radius: 13px; background: var(--mist); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
   .trust-item h4 { font-family: 'Fraunces', serif; font-size: 0.98rem; font-weight: 800; color: var(--ink); margin-bottom: 0.25rem; }
   .trust-item p { font-size: 0.79rem; color: var(--gray); line-height: 1.65; font-weight: 300; }
+
+  <section style="padding: 7rem 5%; background: #f4f8f7;">
+  
+<style>
+  .sim-wrap { padding: 1.5rem 0; font-family: var(--font-sans); }
+  .sim-header { margin-bottom: 1.5rem; }
+  .sim-header h2 { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+  .sim-header p { font-size: 14px; color: var(--color-text-secondary); margin: 0; }
+
+  .inputs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 1.5rem; }
+  .input-group { display: flex; flex-direction: column; gap: 6px; }
+  .input-group label { font-size: 12px; color: var(--color-text-secondary); font-weight: 500; }
+  .input-group input[type="number"] { width: 100%; padding: 0 10px; }
+  .input-group .hint { font-size: 11px; color: var(--color-text-tertiary); margin-top: 2px; }
+
+  .fluct-row { margin-bottom: 1.5rem; }
+  .fluct-row label { font-size: 12px; color: var(--color-text-secondary); font-weight: 500; display: block; margin-bottom: 8px; }
+  .fluct-btns { display: flex; gap: 8px; }
+  .fluct-btn { flex: 1; padding: 8px 0; font-size: 13px; cursor: pointer; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-secondary); transition: all 0.15s; }
+  .fluct-btn.active { background: #0f7a7a; color: #fff; border-color: #0f7a7a; }
+
+  .range-row { margin-bottom: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .range-group { display: flex; flex-direction: column; gap: 6px; }
+  .range-group label { font-size: 12px; color: var(--color-text-secondary); font-weight: 500; }
+  .range-val { font-size: 13px; font-weight: 500; color: var(--color-text-primary); min-width: 56px; }
+
+  .sim-btn { width: 100%; padding: 10px; font-size: 14px; font-weight: 500; cursor: pointer; background: #0f7a7a; color: #fff; border: none; border-radius: var(--border-radius-lg); margin-bottom: 1.5rem; transition: opacity 0.15s; }
+  .sim-btn:hover { opacity: 0.88; }
+
+  .results-section { display: none; }
+  .results-section.show { display: block; }
+
+  .summary-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.5rem; }
+  .s-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 14px; }
+  .s-card .s-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; }
+  .s-card .s-val { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
+  .s-card .s-sub { font-size: 11px; color: var(--color-text-tertiary); margin-top: 2px; }
+
+  .months-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.5rem; }
+  .month-row { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 12px 14px; }
+  .month-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .month-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+  .month-scenario { font-size: 11px; color: var(--color-text-secondary); background: var(--color-background-secondary); padding: 2px 8px; border-radius: 20px; }
+  .month-bars { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .bar-wrap { display: flex; flex-direction: column; gap: 4px; }
+  .bar-label { font-size: 10px; color: var(--color-text-tertiary); }
+  .bar-track { height: 6px; border-radius: 3px; background: var(--color-background-secondary); overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+  .bar-fill.expense { background: #d85a30; }
+  .bar-fill.surplus { background: #3bd0a5; }
+  .bar-fill.invest  { background: #0f7a7a; }
+  .bar-amount { font-size: 11px; font-weight: 500; color: var(--color-text-primary); }
+
+  .chart-area { margin-bottom: 1.5rem; }
+  .chart-title { font-size: 13px; color: var(--color-text-secondary); margin-bottom: 10px; }
+  .chart-legend { display: flex; gap: 16px; margin-bottom: 10px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--color-text-secondary); }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+  .insight-box { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; background: var(--color-background-primary); }
+  .insight-box p { font-size: 13px; color: var(--color-text-secondary); margin: 0 0 10px; line-height: 1.6; }
+  .insight-box p:last-child { margin-bottom: 0; }
+  .insight-hl { color: #0f7a7a; font-weight: 500; }
+
+  .cta-strip { display: flex; align-items: center; justify-content: space-between; background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 16px; margin-top: 1.5rem; flex-wrap: wrap; gap: 10px; }
+  .cta-strip span { font-size: 13px; color: var(--color-text-secondary); }
+  .cta-strip button { font-size: 13px; padding: 7px 18px; cursor: pointer; background: #0f7a7a; color: #fff; border: none; border-radius: var(--border-radius-md); }
+</style>
+
+<div class="sim-wrap">
+  <div class="sim-header">
+    <h2>Self-Adjusting SIP Simulator</h2>
+    <p>See how your SIP would automatically adjust each month based on your real spending — just like InGood works.</p>
+  </div>
+
+  <div class="inputs-grid">
+    <div class="input-group">
+      <label>Monthly income (₹)</label>
+      <input type="number" id="income" value="80000" step="1000" min="10000" />
+      <span class="hint">Your take-home salary or income</span>
+    </div>
+    <div class="input-group">
+      <label>Average monthly expenses (₹)</label>
+      <input type="number" id="expenses" value="50000" step="1000" min="5000" />
+      <span class="hint">Rent, food, bills, subscriptions</span>
+    </div>
+  </div>
+
+  <div class="fluct-row">
+    <label>Expense fluctuation — how variable are your monthly spends?</label>
+    <div class="fluct-btns">
+      <button class="fluct-btn active" data-v="low">Low &nbsp;±10%</button>
+      <button class="fluct-btn" data-v="medium">Medium &nbsp;±22%</button>
+      <button class="fluct-btn" data-v="high">High &nbsp;±38%</button>
+    </div>
+  </div>
+
+  <div class="range-row">
+    <div class="range-group">
+      <label>Minimum investment comfort (₹)</label>
+      <input type="range" id="minInvest" min="500" max="15000" step="500" value="2000" />
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="hint">Invest at least this much</span>
+        <span class="range-val" id="minVal">₹2,000</span>
+      </div>
+    </div>
+    <div class="range-group">
+      <label>Maximum investment comfort (₹)</label>
+      <input type="range" id="maxInvest" min="2000" max="50000" step="500" value="20000" />
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span class="hint">Never invest more than this</span>
+        <span class="range-val" id="maxVal">₹20,000</span>
+      </div>
+    </div>
+  </div>
+
+  <button class="sim-btn" id="runBtn">Simulate My Self-Adjusting SIP →</button>
+
+  <div class="results-section" id="results">
+
+    <div class="summary-cards" id="summaryCards"></div>
+
+    <div class="chart-area">
+      <div class="chart-title">Monthly flow — expenses vs surplus vs investment</div>
+      <div class="chart-legend">
+        <span class="legend-item"><span class="legend-dot" style="background:#d85a30;"></span>Expenses</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#3bd0a5;"></span>Surplus</span>
+        <span class="legend-item"><span class="legend-dot" style="background:#0f7a7a;"></span>Invested</span>
+      </div>
+      <div style="position:relative;width:100%;height:220px;">
+        <canvas id="sipChart"></canvas>
+      </div>
+    </div>
+
+    <div class="months-grid" id="monthsGrid"></div>
+
+    <div class="insight-box" id="insightBox"></div>
+
+    <div class="cta-strip">
+      <span>This is exactly how InGood works for your real account.</span>
+      <button onclick="openLink('https://www.ingood.com')">Start Investing with InGood</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const fluctMap = { low: 0.10, medium: 0.22, high: 0.38 };
+const monthNames = ['January','February','March','April','May','June'];
+const scenarioLabels = {
+  low_low: 'Lean month', low_norm: 'Normal month', low_high: 'High-spend month',
+  medium_low: 'Lean month', medium_norm: 'Normal month', medium_high: 'High-spend month',
+  high_low: 'Lean month', high_norm: 'Normal month', high_high: 'Heavy-spend month'
+};
+const multipliers = [0.82, 1.18, 0.95, 1.32, 0.88, 1.05];
+
+let fluct = 'low';
+let chartInst = null;
+
+document.querySelectorAll('.fluct-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.fluct-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    fluct = btn.dataset.v;
+  });
+});
+
+const fmt = v => '₹' + Math.round(v).toLocaleString('en-IN');
+
+document.getElementById('minInvest').addEventListener('input', function() {
+  document.getElementById('minVal').textContent = fmt(this.value);
+});
+document.getElementById('maxInvest').addEventListener('input', function() {
+  document.getElementById('maxVal').textContent = fmt(this.value);
+});
+
+document.getElementById('runBtn').addEventListener('click', simulate);
+
+function simulate() {
+  const income   = parseFloat(document.getElementById('income').value) || 80000;
+  const baseExp  = parseFloat(document.getElementById('expenses').value) || 50000;
+  const minInv   = parseFloat(document.getElementById('minInvest').value) || 2000;
+  const maxInv   = parseFloat(document.getElementById('maxInvest').value) || 20000;
+  const variance = fluctMap[fluct];
+  const liq      = income * 0.1;
+
+  const months = multipliers.map((m, i) => {
+    const exp     = Math.round(baseExp * m);
+    const surplus = Math.max(0, income - exp - liq);
+    const invest  = Math.round(Math.min(maxInv, Math.max(minInv, surplus * 0.65)));
+    const type    = m < 0.9 ? 'low' : m > 1.15 ? 'high' : 'norm';
+    return { name: monthNames[i], exp, surplus, invest, type };
+  });
+
+  const totalInvested = months.reduce((s, m) => s + m.invest, 0);
+  const avgInvested   = Math.round(totalInvested / months.length);
+  const consistency   = months.filter(m => m.invest >= minInv).length;
+
+  document.getElementById('summaryCards').innerHTML = `
+    <div class="s-card">
+      <div class="s-label">Total invested (6 mo.)</div>
+      <div class="s-val">${fmt(totalInvested)}</div>
+      <div class="s-sub">auto-allocated to index funds</div>
+    </div>
+    <div class="s-card">
+      <div class="s-label">Average monthly SIP</div>
+      <div class="s-val">${fmt(avgInvested)}</div>
+      <div class="s-sub">self-adjusted each month</div>
+    </div>
+    <div class="s-card">
+      <div class="s-label">SIP consistency</div>
+      <div class="s-val">${consistency}/6</div>
+      <div class="s-sub">months above your minimum</div>
+    </div>`;
+
+  const maxExp = Math.max(...months.map(m => m.exp));
+  document.getElementById('monthsGrid').innerHTML = months.map(m => {
+    const ePct = Math.round((m.exp / maxExp) * 100);
+    const sPct = Math.round((m.surplus / income) * 100);
+    const iPct = Math.round((m.invest / maxInv) * 100);
+    const label = m.type === 'low' ? 'Low expenses → more invested' : m.type === 'high' ? 'High expenses → less invested' : 'Normal expenses → moderate SIP';
+    return `<div class="month-row">
+      <div class="month-top">
+        <span class="month-name">${m.name}</span>
+        <span class="month-scenario">${label}</span>
+      </div>
+      <div class="month-bars">
+        <div class="bar-wrap">
+          <div class="bar-label">Expenses</div>
+          <div class="bar-track"><div class="bar-fill expense" style="width:${ePct}%"></div></div>
+          <div class="bar-amount">${fmt(m.exp)}</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label">Surplus</div>
+          <div class="bar-track"><div class="bar-fill surplus" style="width:${sPct}%"></div></div>
+          <div class="bar-amount">${fmt(m.surplus)}</div>
+        </div>
+        <div class="bar-wrap">
+          <div class="bar-label">Invested</div>
+          <div class="bar-track"><div class="bar-fill invest" style="width:${iPct}%"></div></div>
+          <div class="bar-amount">${fmt(m.invest)}</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  const highMonth = months.reduce((a, b) => a.invest > b.invest ? a : b);
+  const lowMonth  = months.reduce((a, b) => a.invest < b.invest ? a : b);
+  const saved     = Math.round(totalInvested * 0.07);
+  document.getElementById('insightBox').innerHTML = `
+    <p>With your income and spending pattern, InGood would have invested <span class="insight-hl">${fmt(totalInvested)}</span> over 6 months — automatically, with zero fixed commitment.</p>
+    <p>Your highest SIP month was <span class="insight-hl">${highMonth.name} (${fmt(highMonth.invest)})</span> — a lean spending month where your surplus was high. Your lowest was <span class="insight-hl">${lowMonth.name} (${fmt(lowMonth.invest)})</span> — a heavier month, yet InGood still invested above your minimum.</p>
+    <p>A traditional fixed SIP of ${fmt(avgInvested)}/month would have failed in at least one month. InGood adjusted instead — keeping you consistent, never stressed.</p>`;
+
+  drawChart(months);
+  document.getElementById('results').classList.add('show');
+  document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function drawChart(months) {
+  if (chartInst) { chartInst.destroy(); }
+  const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+  const gridColor  = isDark ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.06)';
+  const labelColor = isDark ? 'rgba(255,255,255,0.45)' : 'rgba(0,0,0,0.4)';
+
+  chartInst = new Chart(document.getElementById('sipChart'), {
+    type: 'bar',
+    data: {
+      labels: months.map(m => m.name.slice(0,3)),
+      datasets: [
+        { label: 'Expenses', data: months.map(m => m.exp),     backgroundColor: '#d85a30', borderRadius: 3, order: 1 },
+        { label: 'Surplus',  data: months.map(m => m.surplus), backgroundColor: '#3bd0a5', borderRadius: 3, order: 1 },
+        { label: 'Invested', data: months.map(m => m.invest),  backgroundColor: '#0f7a7a', borderRadius: 3, type: 'bar', order: 0 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: {
+        callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ₹' + Math.round(ctx.raw).toLocaleString('en-IN') }
+      }},
+      scales: {
+        x: { grid: { color: gridColor }, ticks: { color: labelColor, font: { size: 11 } } },
+        y: { grid: { color: gridColor }, ticks: { color: labelColor, font: { size: 11 }, callback: v => '₹' + (v/1000).toFixed(0) + 'k' } }
+      }
+    }
+  });
+}
+</script>
+
+</section>
+
 
   /* ── TESTIMONIALS ── */
   .testimonials { background: var(--mist); padding: 7rem 5%; }
