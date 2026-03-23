@@ -319,6 +319,273 @@
   .trust-item h4 { font-family: 'Fraunces', serif; font-size: 0.98rem; font-weight: 800; color: var(--ink); margin-bottom: 0.25rem; }
   .trust-item p { font-size: 0.79rem; color: var(--gray); line-height: 1.65; font-weight: 300; }
 
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--mist); padding: 7rem 5%; }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.5rem; }
+  .testi-card {
+    background: var(--surface); border-radius: 20px; padding: 2rem;
+    border: 1px solid rgba(15,122,122,0.08);
+    transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden;
+  }
+  .testi-card::before {
+    content: '"'; position: absolute; top: -0.6rem; right: 1.2rem;
+    font-family: 'Fraunces', serif; font-size: 6rem; font-weight: 800;
+    color: rgba(15,122,122,0.06); line-height: 1;
+  }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(8,54,74,0.08); }
+  .stars { color: var(--aqua); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 1.5px; }
+  .testi-card blockquote { font-size: 0.9rem; line-height: 1.78; color: var(--ink); font-weight: 400; margin-bottom: 1.4rem; position: relative; z-index: 1; }
+  .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+  .author-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--grad); color: #fff; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .author-name { font-size: 0.8rem; font-weight: 700; color: var(--ink); }
+  .author-role { font-size: 0.7rem; color: var(--gray); }
+
+  /* ── CTA ── */
+  .cta-section { padding: 8rem 5%; text-align: center; background: var(--surface); position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 70% at 50% 50%, rgba(59,208,165,0.1) 0%, transparent 60%); }
+  .cta-section .section-title { font-size: clamp(2.2rem, 4.5vw, 3.8rem); }
+  .cta-section .section-sub { margin: 0 auto 2.4rem; max-width: 460px; }
+
+  .cta-form { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; position: relative; z-index: 1; }
+  .cta-input {
+    padding: 0.88rem 1.5rem; border: 1.5px solid rgba(15,122,122,0.2); border-radius: 100px;
+    font-family: 'Sora', sans-serif; font-size: 0.88rem; background: var(--bg);
+    color: var(--ink); width: 270px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .cta-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(15,122,122,0.1); }
+  .cta-input::placeholder { color: var(--light-gray); }
+  .cta-note { font-size: 0.7rem; color: var(--light-gray); margin-top: 1.1rem; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--deep); padding: 4.5rem 5% 2.5rem; }
+  .footer-top {
+    display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem;
+    margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .footer-logo {
+    font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.8px;
+    background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    display: block; margin-bottom: 0.2rem;
+  }
+  .footer-tag-txt { font-size: 0.67rem; color: rgba(255,255,255,0.3); letter-spacing: 0.5px; margin-bottom: 0.95rem; }
+  .footer-brand p { font-size: 0.79rem; color: rgba(255,255,255,0.38); line-height: 1.75; font-weight: 300; max-width: 255px; }
+  .footer-socials { display: flex; gap: 0.7rem; margin-top: 1.3rem; }
+  .social-btn {
+    width: 33px; height: 33px; border-radius: 8px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 0.82rem; color: rgba(255,255,255,0.6);
+    font-weight: 700; font-family: 'Sora', sans-serif;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .social-btn:hover { background: rgba(59,208,165,0.15); border-color: rgba(59,208,165,0.4); color: var(--aqua); }
+
+  .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.62rem; }
+  .footer-col ul a { text-decoration: none; font-size: 0.79rem; color: rgba(255,255,255,0.52); transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--aqua); }
+
+  .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
+  .footer-bottom p { font-size: 0.7rem; color: rgba(255,255,255,0.22); }
+  .footer-bottom a { color: rgba(255,255,255,0.22); text-decoration: none; }
+  .sebi-note { font-size: 0.67rem; color: rgba(255,255,255,0.18); max-width: 380px; text-align: right; line-height: 1.6; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes grow { from { width: 0%; } to { width: 68%; } }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .how-grid { grid-template-columns: repeat(2, 1fr); }
+    .how-grid::before { display: none; }
+    .feat-grid { grid-template-columns: repeat(2, 1fr); }
+    .feat-card.wide { grid-column: span 2; }
+  }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; text-align: center; }
+    .hero-desc { margin-left: auto; margin-right: auto; }
+    .hero-btns { justify-content: center; }
+    .hero-visual { margin-top: 3rem; }
+    .trust-strip { grid-template-columns: 1fr; gap: 1.5rem; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .feat-card.wide { grid-column: span 1; }
+    .feat-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .how-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .sebi-note { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <span class="nav-logo">InGood</span>
+    <span class="nav-tagline">Liquidity First. Investing Next.</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#cta" class="nav-cta">Start Investing</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-tag">Self-Adjusting SIP · Surplus-Based Investing</span>
+    <h1>Smart, Flexible Investing Based on Your <em>Cash Flow</em></h1>
+    <p class="hero-desc">InGood helps you invest surplus funds automatically through a self-adjusting SIP that adapts to your real-life spending patterns — so you're always liquid, always growing.</p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn-primary">Start Investing →</a>
+      <a href="#how" class="btn-ghost">See how it works</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div style="position:relative;">
+      <div class="float-card" style="top:-10px; right:-18px; animation-delay:-1.2s;">
+        <div class="float-val">₹4,200</div>
+        <div class="float-label">Surplus identified</div>
+      </div>
+      <div class="float-card" style="bottom:22px; left:-22px; animation-delay:-2.4s;">
+        <div class="float-val">Adjusted ↗</div>
+        <div class="float-label">SIP auto-updated</div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-header">
+          <span class="card-header-title">Self-Adjusting SIP</span>
+          <span class="card-badge">● ACTIVE</span>
+        </div>
+        <div class="sip-row">
+          <div class="sip-amount">₹8,400</div>
+          <div class="sip-change">↑ Dynamic</div>
+        </div>
+        <div class="sip-sub">Invested this month · Auto-adjusted</div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <div class="progress-label">
+          <span>₹5,712 in index funds</span><span>68%</span>
+        </div>
+        <div class="mini-list">
+          <div class="mini-item">
+            <div class="mini-item-left">
+              <div class="mini-icon" style="background:rgba(15,122,122,0.1);">💳</div>
+              <span class="mini-label">Card Spend Tracked</span>
+            </div>
+            <span class="mini-amount">₹38,200</span>
+          </div>
+          <div class="mini-item">
+            <div class="mini-item-left">
+              <div class="mini-icon" style="background:rgba(0,208,132,0.1);">📈</div>
+              <span class="mini-label">Surplus Detected</span>
+            </div>
+            <span class="mini-amount">₹12,600</span>
+          </div>
+          <div class="mini-item">
+            <div class="mini-item-left">
+              <div class="mini-icon" style="background:rgba(59,208,165,0.1);">🏦</div>
+              <span class="mini-label">Index Fund Allocated</span>
+            </div>
+            <span class="mini-amount">₹8,400</span>
+          </div>
+        </div>
+        <div class="surplus-chip">
+          <span class="surplus-label">💧 Liquidity Reserve Maintained</span>
+          <span class="surplus-val">₹4,200</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="reveal">
+    <p class="section-tag">The Process</p>
+    <h2 class="section-title">Four steps to <em>intelligent</em> investing</h2>
+    <p class="section-sub">InGood's Liquidity-First engine works quietly in the background — reading, analysing, and investing — while you live your life.</p>
+  </div>
+  <div class="how-grid">
+    <div class="step-card reveal">
+      <div class="step-num-wrap">01</div>
+      <div class="step-icon">🎚️</div>
+      <h3>Set your comfort limits</h3>
+      <p>Define your investment comfort zone — minimum liquidity to always hold, and the max you're okay investing. InGood respects these boundaries absolutely, every month.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:0.1s">
+      <div class="step-num-wrap">02</div>
+      <div class="step-icon">🧠</div>
+      <h3>Cash flow analysis</h3>
+      <p>InGood connects to your credit card and bank account to map spending patterns, income cycles, and monthly obligations — building a precise, live financial picture of your cash flow.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:0.18s">
+      <div class="step-num-wrap">03</div>
+      <div class="step-icon">🔍</div>
+      <h3>Surplus auto-detected</h3>
+      <p>Each month, the engine identifies exactly how much surplus sits beyond your spending and liquidity buffer. No guesswork, no rigid commitments — just real numbers.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:0.26s">
+      <div class="step-num-wrap">04</div>
+      <div class="step-icon">📊</div>
+      <h3>Dynamic index fund allocation</h3>
+      <p>The surplus is automatically invested into low-cost index funds via your linked bank account — with the SIP amount adjusting dynamically every month based on your actual cash flow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-bg" id="features">
+  <div class="reveal">
+    <p class="section-tag">Why InGood</p>
+    <h2 class="section-title">Built around your <em>liquidity</em></h2>
+    <p class="section-sub">Every feature stems from one belief: your money should stay accessible first, and grow second — automatically.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card wide reveal">
+      <div class="feat-icon-wrap">⚡</div>
+      <h3>Self-Adjusting SIP — No rigid monthly commitment</h3>
+      <p>Unlike traditional SIPs with fixed amounts that drain your account on tough months, InGood's SIP adapts in real-time. High-spend month? It invests less. Surplus month? It invests more. Your investment always fits your life — not the other way around.</p>
+    </div>
+    <div class="feat-card reveal" style="transition-delay:0.08s">
+      <div class="feat-icon-wrap">💧</div>
+      <h3>Liquidity-First Investing</h3>
+      <p>InGood never compromises your liquidity. Your reserve is always protected — investments only happen from genuine surplus, never from your safety net.</p>
+    </div>
+    <div class="feat-card reveal" style="transition-delay:0.14s">
+      <div class="feat-icon-wrap">💳</div>
+      <h3>Credit card + cash flow integration</h3>
+      <p>InGood reads your credit card statements to map spending and identify exactly how much you can comfortably invest each month without disrupting your lifestyle.</p>
+    </div>
+    <div class="feat-card reveal" style="transition-delay:0.08s">
+      <div class="feat-icon-wrap">📈</div>
+      <h3>Index fund-based investing</h3>
+      <p>All investments go into low-cost, diversified index funds — proven to outperform most actively managed funds over the long run, with minimal fees eating into your returns.</p>
+    </div>
+    <div class="feat-card reveal" style="transition-delay:0.14s">
+      <div class="feat-icon-wrap">🔍</div>
+      <h3>Automatic surplus detection</h3>
+      <p>No manual calculation. InGood identifies investable surplus by analysing income, committed expenses, and real spending — automatically, every single month.</p>
+    </div>
+    <div class="feat-card reveal" style="transition-delay:0.2s">
+      <div class="feat-icon-wrap">📡</div>
+      <h3>Real-time tracking & transparency</h3>
+      <p>See every adjustment, every investment, every surplus detection in real-time. Full transparency into how InGood manages your money — always, with no surprises.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════════════════════════════════════════
      INGOOD — SELF-ADJUSTING SIP SIMULATOR SECTION
      Paste this between Features and Testimonials
@@ -700,274 +967,6 @@
 })();
 </script>
 <!-- ═══════════════════════════════════════════════ END SIMULATOR ═══ -->
- 
-
-
-  /* ── TESTIMONIALS ── */
-  .testimonials { background: var(--mist); padding: 7rem 5%; }
-  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.5rem; }
-  .testi-card {
-    background: var(--surface); border-radius: 20px; padding: 2rem;
-    border: 1px solid rgba(15,122,122,0.08);
-    transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden;
-  }
-  .testi-card::before {
-    content: '"'; position: absolute; top: -0.6rem; right: 1.2rem;
-    font-family: 'Fraunces', serif; font-size: 6rem; font-weight: 800;
-    color: rgba(15,122,122,0.06); line-height: 1;
-  }
-  .testi-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(8,54,74,0.08); }
-  .stars { color: var(--aqua); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 1.5px; }
-  .testi-card blockquote { font-size: 0.9rem; line-height: 1.78; color: var(--ink); font-weight: 400; margin-bottom: 1.4rem; position: relative; z-index: 1; }
-  .testi-author { display: flex; align-items: center; gap: 0.8rem; }
-  .author-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--grad); color: #fff; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .author-name { font-size: 0.8rem; font-weight: 700; color: var(--ink); }
-  .author-role { font-size: 0.7rem; color: var(--gray); }
-
-  /* ── CTA ── */
-  .cta-section { padding: 8rem 5%; text-align: center; background: var(--surface); position: relative; overflow: hidden; }
-  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 70% at 50% 50%, rgba(59,208,165,0.1) 0%, transparent 60%); }
-  .cta-section .section-title { font-size: clamp(2.2rem, 4.5vw, 3.8rem); }
-  .cta-section .section-sub { margin: 0 auto 2.4rem; max-width: 460px; }
-
-  .cta-form { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; position: relative; z-index: 1; }
-  .cta-input {
-    padding: 0.88rem 1.5rem; border: 1.5px solid rgba(15,122,122,0.2); border-radius: 100px;
-    font-family: 'Sora', sans-serif; font-size: 0.88rem; background: var(--bg);
-    color: var(--ink); width: 270px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
-  }
-  .cta-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(15,122,122,0.1); }
-  .cta-input::placeholder { color: var(--light-gray); }
-  .cta-note { font-size: 0.7rem; color: var(--light-gray); margin-top: 1.1rem; }
-
-  /* ── FOOTER ── */
-  footer { background: var(--deep); padding: 4.5rem 5% 2.5rem; }
-  .footer-top {
-    display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem;
-    margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-  .footer-logo {
-    font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.8px;
-    background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    display: block; margin-bottom: 0.2rem;
-  }
-  .footer-tag-txt { font-size: 0.67rem; color: rgba(255,255,255,0.3); letter-spacing: 0.5px; margin-bottom: 0.95rem; }
-  .footer-brand p { font-size: 0.79rem; color: rgba(255,255,255,0.38); line-height: 1.75; font-weight: 300; max-width: 255px; }
-  .footer-socials { display: flex; gap: 0.7rem; margin-top: 1.3rem; }
-  .social-btn {
-    width: 33px; height: 33px; border-radius: 8px;
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
-    display: flex; align-items: center; justify-content: center;
-    text-decoration: none; font-size: 0.82rem; color: rgba(255,255,255,0.6);
-    font-weight: 700; font-family: 'Sora', sans-serif;
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
-  }
-  .social-btn:hover { background: rgba(59,208,165,0.15); border-color: rgba(59,208,165,0.4); color: var(--aqua); }
-
-  .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 1.2rem; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.62rem; }
-  .footer-col ul a { text-decoration: none; font-size: 0.79rem; color: rgba(255,255,255,0.52); transition: color 0.2s; }
-  .footer-col ul a:hover { color: var(--aqua); }
-
-  .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
-  .footer-bottom p { font-size: 0.7rem; color: rgba(255,255,255,0.22); }
-  .footer-bottom a { color: rgba(255,255,255,0.22); text-decoration: none; }
-  .sebi-note { font-size: 0.67rem; color: rgba(255,255,255,0.18); max-width: 380px; text-align: right; line-height: 1.6; }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes grow { from { width: 0%; } to { width: 68%; } }
-  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: none; }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 1024px) {
-    .how-grid { grid-template-columns: repeat(2, 1fr); }
-    .how-grid::before { display: none; }
-    .feat-grid { grid-template-columns: repeat(2, 1fr); }
-    .feat-card.wide { grid-column: span 2; }
-  }
-  @media (max-width: 860px) {
-    .hero { grid-template-columns: 1fr; text-align: center; }
-    .hero-desc { margin-left: auto; margin-right: auto; }
-    .hero-btns { justify-content: center; }
-    .hero-visual { margin-top: 3rem; }
-    .trust-strip { grid-template-columns: 1fr; gap: 1.5rem; }
-    .testi-grid { grid-template-columns: 1fr; }
-    .footer-top { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
-    .feat-card.wide { grid-column: span 1; }
-    .feat-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 560px) {
-    .how-grid { grid-template-columns: 1fr; }
-    .footer-top { grid-template-columns: 1fr; }
-    .sebi-note { text-align: left; }
-  }
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-brand">
-    <span class="nav-logo">InGood</span>
-    <span class="nav-tagline">Liquidity First. Investing Next.</span>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#how">How it works</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#testimonials">Stories</a></li>
-    <li><a href="#cta" class="nav-cta">Start Investing</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-text">
-    <span class="hero-tag">Self-Adjusting SIP · Surplus-Based Investing</span>
-    <h1>Smart, Flexible Investing Based on Your <em>Cash Flow</em></h1>
-    <p class="hero-desc">InGood helps you invest surplus funds automatically through a self-adjusting SIP that adapts to your real-life spending patterns — so you're always liquid, always growing.</p>
-    <div class="hero-btns">
-      <a href="#cta" class="btn-primary">Start Investing →</a>
-      <a href="#how" class="btn-ghost">See how it works</a>
-    </div>
-  </div>
-
-  <div class="hero-visual">
-    <div style="position:relative;">
-      <div class="float-card" style="top:-10px; right:-18px; animation-delay:-1.2s;">
-        <div class="float-val">₹4,200</div>
-        <div class="float-label">Surplus identified</div>
-      </div>
-      <div class="float-card" style="bottom:22px; left:-22px; animation-delay:-2.4s;">
-        <div class="float-val">Adjusted ↗</div>
-        <div class="float-label">SIP auto-updated</div>
-      </div>
-
-      <div class="dashboard-card">
-        <div class="card-header">
-          <span class="card-header-title">Self-Adjusting SIP</span>
-          <span class="card-badge">● ACTIVE</span>
-        </div>
-        <div class="sip-row">
-          <div class="sip-amount">₹8,400</div>
-          <div class="sip-change">↑ Dynamic</div>
-        </div>
-        <div class="sip-sub">Invested this month · Auto-adjusted</div>
-        <div class="progress-bar"><div class="progress-fill"></div></div>
-        <div class="progress-label">
-          <span>₹5,712 in index funds</span><span>68%</span>
-        </div>
-        <div class="mini-list">
-          <div class="mini-item">
-            <div class="mini-item-left">
-              <div class="mini-icon" style="background:rgba(15,122,122,0.1);">💳</div>
-              <span class="mini-label">Card Spend Tracked</span>
-            </div>
-            <span class="mini-amount">₹38,200</span>
-          </div>
-          <div class="mini-item">
-            <div class="mini-item-left">
-              <div class="mini-icon" style="background:rgba(0,208,132,0.1);">📈</div>
-              <span class="mini-label">Surplus Detected</span>
-            </div>
-            <span class="mini-amount">₹12,600</span>
-          </div>
-          <div class="mini-item">
-            <div class="mini-item-left">
-              <div class="mini-icon" style="background:rgba(59,208,165,0.1);">🏦</div>
-              <span class="mini-label">Index Fund Allocated</span>
-            </div>
-            <span class="mini-amount">₹8,400</span>
-          </div>
-        </div>
-        <div class="surplus-chip">
-          <span class="surplus-label">💧 Liquidity Reserve Maintained</span>
-          <span class="surplus-val">₹4,200</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-  <div class="reveal">
-    <p class="section-tag">The Process</p>
-    <h2 class="section-title">Four steps to <em>intelligent</em> investing</h2>
-    <p class="section-sub">InGood's Liquidity-First engine works quietly in the background — reading, analysing, and investing — while you live your life.</p>
-  </div>
-  <div class="how-grid">
-    <div class="step-card reveal">
-      <div class="step-num-wrap">01</div>
-      <div class="step-icon">🎚️</div>
-      <h3>Set your comfort limits</h3>
-      <p>Define your investment comfort zone — minimum liquidity to always hold, and the max you're okay investing. InGood respects these boundaries absolutely, every month.</p>
-    </div>
-    <div class="step-card reveal" style="transition-delay:0.1s">
-      <div class="step-num-wrap">02</div>
-      <div class="step-icon">🧠</div>
-      <h3>Cash flow analysis</h3>
-      <p>InGood connects to your credit card and bank account to map spending patterns, income cycles, and monthly obligations — building a precise, live financial picture of your cash flow.</p>
-    </div>
-    <div class="step-card reveal" style="transition-delay:0.18s">
-      <div class="step-num-wrap">03</div>
-      <div class="step-icon">🔍</div>
-      <h3>Surplus auto-detected</h3>
-      <p>Each month, the engine identifies exactly how much surplus sits beyond your spending and liquidity buffer. No guesswork, no rigid commitments — just real numbers.</p>
-    </div>
-    <div class="step-card reveal" style="transition-delay:0.26s">
-      <div class="step-num-wrap">04</div>
-      <div class="step-icon">📊</div>
-      <h3>Dynamic index fund allocation</h3>
-      <p>The surplus is automatically invested into low-cost index funds via your linked bank account — with the SIP amount adjusting dynamically every month based on your actual cash flow.</p>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features-bg" id="features">
-  <div class="reveal">
-    <p class="section-tag">Why InGood</p>
-    <h2 class="section-title">Built around your <em>liquidity</em></h2>
-    <p class="section-sub">Every feature stems from one belief: your money should stay accessible first, and grow second — automatically.</p>
-  </div>
-  <div class="feat-grid">
-    <div class="feat-card wide reveal">
-      <div class="feat-icon-wrap">⚡</div>
-      <h3>Self-Adjusting SIP — No rigid monthly commitment</h3>
-      <p>Unlike traditional SIPs with fixed amounts that drain your account on tough months, InGood's SIP adapts in real-time. High-spend month? It invests less. Surplus month? It invests more. Your investment always fits your life — not the other way around.</p>
-    </div>
-    <div class="feat-card reveal" style="transition-delay:0.08s">
-      <div class="feat-icon-wrap">💧</div>
-      <h3>Liquidity-First Investing</h3>
-      <p>InGood never compromises your liquidity. Your reserve is always protected — investments only happen from genuine surplus, never from your safety net.</p>
-    </div>
-    <div class="feat-card reveal" style="transition-delay:0.14s">
-      <div class="feat-icon-wrap">💳</div>
-      <h3>Credit card + cash flow integration</h3>
-      <p>InGood reads your credit card statements to map spending and identify exactly how much you can comfortably invest each month without disrupting your lifestyle.</p>
-    </div>
-    <div class="feat-card reveal" style="transition-delay:0.08s">
-      <div class="feat-icon-wrap">📈</div>
-      <h3>Index fund-based investing</h3>
-      <p>All investments go into low-cost, diversified index funds — proven to outperform most actively managed funds over the long run, with minimal fees eating into your returns.</p>
-    </div>
-    <div class="feat-card reveal" style="transition-delay:0.14s">
-      <div class="feat-icon-wrap">🔍</div>
-      <h3>Automatic surplus detection</h3>
-      <p>No manual calculation. InGood identifies investable surplus by analysing income, committed expenses, and real spending — automatically, every single month.</p>
-    </div>
-    <div class="feat-card reveal" style="transition-delay:0.2s">
-      <div class="feat-icon-wrap">📡</div>
-      <h3>Real-time tracking & transparency</h3>
-      <p>See every adjustment, every investment, every surplus detection in real-time. Full transparency into how InGood manages your money — always, with no surprises.</p>
-    </div>
-  </div>
-</section>
 
 <!-- TRUST STRIP -->
 <div class="trust-strip">
