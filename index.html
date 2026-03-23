@@ -1,1 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>InGood — Liquidity First. Investing Next.</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,600;0,800;1,600;1,800&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --teal:       #0f7a7a;
+    --teal-mid:   #1da89a;
+    --aqua:       #3bd0a5;
+    --deep:       #08364a;
+    --green:      #00d084;
+    --ink:        #0d1f29;
+    --bg:         #f4f8f7;
+    --surface:    #ffffff;
+    --mist:       #e8f3f1;
+    --gray:       #6b8a93;
+    --light-gray: #b8cdd4;
+    --grad:       linear-gradient(135deg, #0f7a7a, #3bd0a5);
+  }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(244,248,247,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(15,122,122,0.1);
+  }
+  .nav-brand { display: flex; flex-direction: column; }
+  .nav-logo {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.55rem; font-weight: 800; letter-spacing: -1px;
+    background: var(--grad);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .nav-tagline { font-size: 0.62rem; font-weight: 500; color: var(--gray); letter-spacing: 0.4px; margin-top: -3px; }
+
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+  .nav-links a { text-decoration: none; font-size: 0.85rem; font-weight: 500; color: var(--ink); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    background: var(--grad); color: #fff !important;
+    padding: 0.6rem 1.5rem; border-radius: 100px; font-weight: 600 !important;
+    box-shadow: 0 4px 16px rgba(15,122,122,0.28);
+    transition: opacity 0.2s, transform 0.15s !important;
+  }
+  .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; padding: 7.5rem 5% 4rem;
+    position: relative; overflow: hidden; gap: 3rem;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 65% at 85% 50%, rgba(59,208,165,0.13) 0%, transparent 60%),
+      radial-gradient(ellipse 35% 45% at 5% 85%, rgba(15,122,122,0.08) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(15,122,122,0.07) 1px, transparent 1px);
+    background-size: 28px 28px; pointer-events: none;
+    mask-image: radial-gradient(ellipse 70% 80% at 80% 50%, black 0%, transparent 70%);
+  }
+  .hero-text { position: relative; z-index: 1; }
+
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--teal); background: rgba(15,122,122,0.08);
+    border: 1px solid rgba(15,122,122,0.2);
+    padding: 0.4rem 1rem; border-radius: 100px;
+    margin-bottom: 1.8rem; animation: fadeUp 0.8s ease both;
+  }
+  .hero-tag::before { content: '●'; font-size: 0.55rem; color: var(--green); }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.8rem, 5vw, 4.8rem); font-weight: 800;
+    line-height: 1.08; letter-spacing: -2px; color: var(--ink);
+    margin-bottom: 1.6rem; animation: fadeUp 0.8s 0.1s ease both;
+  }
+  .hero h1 em {
+    font-style: italic; background: var(--grad);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem; line-height: 1.8; color: var(--gray);
+    max-width: 430px; margin-bottom: 2.4rem; font-weight: 300;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.8s 0.3s ease both; }
+
+  .btn-primary {
+    background: var(--grad); color: #fff; padding: 0.9rem 2.2rem;
+    border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.92rem;
+    box-shadow: 0 8px 24px rgba(15,122,122,0.3);
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-primary:hover { opacity: 0.92; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(15,122,122,0.38); }
+
+  .btn-ghost {
+    color: var(--teal); padding: 0.9rem 2.2rem; border-radius: 100px;
+    text-decoration: none; font-weight: 600; font-size: 0.92rem;
+    border: 1.5px solid rgba(15,122,122,0.3);
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .btn-ghost:hover { border-color: var(--teal); background: rgba(15,122,122,0.06); transform: translateY(-2px); }
+
+  /* ── HERO VISUAL ── */
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    position: relative; z-index: 1; animation: fadeUp 0.9s 0.25s ease both;
+  }
+  .dashboard-card {
+    background: var(--surface); border-radius: 24px; padding: 1.8rem; width: 330px;
+    box-shadow: 0 24px 72px rgba(8,54,74,0.14), 0 2px 12px rgba(8,54,74,0.06);
+    position: relative;
+  }
+  .dashboard-card::before {
+    content: ''; position: absolute; top: -1.5px; left: -1.5px; right: -1.5px; bottom: -1.5px;
+    border-radius: 26px; background: var(--grad); z-index: -1; opacity: 0.45;
+  }
+  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }
+  .card-header-title { font-size: 0.68rem; font-weight: 600; color: var(--gray); letter-spacing: 0.8px; text-transform: uppercase; }
+  .card-badge { background: rgba(0,208,132,0.12); color: #00a869; font-size: 0.68rem; font-weight: 700; padding: 0.22rem 0.65rem; border-radius: 100px; }
+
+  .sip-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 0.2rem; }
+  .sip-amount { font-family: 'Fraunces', serif; font-size: 2.6rem; font-weight: 800; color: var(--ink); letter-spacing: -1.5px; line-height: 1; }
+  .sip-change { font-size: 0.7rem; font-weight: 700; color: #00a869; background: rgba(0,208,132,0.1); padding: 0.2rem 0.6rem; border-radius: 100px; margin-bottom: 4px; }
+  .sip-sub { font-size: 0.7rem; color: var(--gray); margin-bottom: 1.3rem; }
+
+  .progress-bar { background: var(--mist); border-radius: 100px; height: 5px; margin-bottom: 0.4rem; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 100px; background: var(--grad); width: 0%; animation: grow 1.6s 0.9s ease forwards; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 0.67rem; color: var(--gray); margin-bottom: 1.3rem; }
+
+  .mini-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .mini-item { display: flex; align-items: center; justify-content: space-between; padding: 0.62rem 0.8rem; background: var(--mist); border-radius: 11px; }
+  .mini-item-left { display: flex; align-items: center; gap: 0.6rem; }
+  .mini-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; }
+  .mini-label { font-size: 0.73rem; font-weight: 500; color: var(--ink); }
+  .mini-amount { font-size: 0.73rem; font-weight: 700; color: var(--teal); }
+
+  .surplus-chip {
+    margin-top: 1rem; display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(135deg, rgba(15,122,122,0.07), rgba(59,208,165,0.07));
+    border: 1px solid rgba(15,122,122,0.16); border-radius: 11px; padding: 0.65rem 0.85rem;
+  }
+  .surplus-label { font-size: 0.68rem; font-weight: 600; color: var(--teal); }
+  .surplus-val { font-size: 0.76rem; font-weight: 800; color: var(--deep); }
+
+  .float-card {
+    position: absolute; background: var(--surface); border-radius: 13px;
+    padding: 0.72rem 0.95rem; box-shadow: 0 10px 36px rgba(8,54,74,0.14);
+    font-size: 0.74rem; animation: float 3.5s ease-in-out infinite; z-index: 2;
+  }
+  .float-val {
+    font-family: 'Fraunces', serif; font-size: 1.12rem; font-weight: 800;
+    background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1;
+  }
+  .float-label { color: var(--gray); font-size: 0.64rem; margin-top: 0.2rem; }
+
+  /* ── SECTIONS ── */
+  .section { padding: 7rem 5%; }
+  .section-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--teal); margin-bottom: 0.9rem; }
+  .section-title {
+    font-family: 'Fraunces', serif; font-size: clamp(2rem, 3.8vw, 3.2rem);
+    font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; color: var(--ink); margin-bottom: 1rem;
+  }
+  .section-title em { font-style: italic; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .section-sub { font-size: 0.98rem; color: var(--gray); max-width: 500px; line-height: 1.75; font-weight: 300; }
+
+  /* ── HOW IT WORKS ── */
+  .how-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem; margin-top: 3.5rem; position: relative;
+  }
+  .how-grid::before {
+    content: ''; position: absolute;
+    top: 50px; left: calc(12.5% + 12px); right: calc(12.5% + 12px);
+    height: 2px; background: var(--grad); opacity: 0.2; z-index: 0;
+  }
+  .step-card {
+    background: var(--surface); border-radius: 20px; padding: 2rem 1.5rem;
+    border: 1px solid rgba(15,122,122,0.1); position: relative; overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s; z-index: 1;
+  }
+  .step-card:hover { transform: translateY(-6px); box-shadow: 0 18px 52px rgba(8,54,74,0.1); }
+  .step-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .step-card:hover::after { transform: scaleX(1); }
+  .step-num-wrap {
+    width: 34px; height: 34px; border-radius: 50%; background: var(--grad); color: #fff;
+    font-size: 0.76rem; font-weight: 800; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1.1rem; box-shadow: 0 4px 14px rgba(15,122,122,0.35);
+  }
+  .step-icon { font-size: 1.5rem; margin-bottom: 0.85rem; }
+  .step-card h3 { font-family: 'Fraunces', serif; font-size: 1.02rem; font-weight: 800; color: var(--ink); margin-bottom: 0.6rem; }
+  .step-card p { font-size: 0.81rem; color: var(--gray); line-height: 1.7; font-weight: 300; }
+
+  /* ── FEATURES ── */
+  .features-bg { background: var(--deep); padding: 7rem 5%; position: relative; overflow: hidden; }
+  .features-bg::before {
+    content: ''; position: absolute; top: -40%; right: -15%;
+    width: 55vw; height: 55vw; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,208,165,0.07) 0%, transparent 70%);
+  }
+  .features-bg::after {
+    content: ''; position: absolute; bottom: -20%; left: -10%;
+    width: 40vw; height: 40vw; border-radius: 50%;
+    background: radial-gradient(circle, rgba(15,122,122,0.09) 0%, transparent 70%);
+  }
+  .features-bg .section-title { color: #fff; }
+  .features-bg .section-tag { color: var(--aqua); }
+  .features-bg .section-sub { color: rgba(255,255,255,0.52); }
+
+  .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 3.5rem; position: relative; z-index: 1; }
+  .feat-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 18px; padding: 1.8rem;
+    transition: background 0.25s, border-color 0.25s, transform 0.2s;
+  }
+  .feat-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(59,208,165,0.28); transform: translateY(-4px); }
+  .feat-card.wide { grid-column: span 2; }
+  .feat-icon-wrap { width: 42px; height: 42px; border-radius: 12px; background: rgba(59,208,165,0.11); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1rem; }
+  .feat-card h3 { font-family: 'Fraunces', serif; font-size: 1.08rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+  .feat-card p { font-size: 0.83rem; color: rgba(255,255,255,0.52); line-height: 1.7; font-weight: 300; }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    background: var(--surface); padding: 3.5rem 5%;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+    border-top: 1px solid var(--mist); border-bottom: 1px solid var(--mist);
+  }
+  .trust-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .trust-icon-wrap { width: 46px; height: 46px; border-radius: 13px; background: var(--mist); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+  .trust-item h4 { font-family: 'Fraunces', serif; font-size: 0.98rem; font-weight: 800; color: var(--ink); margin-bottom: 0.25rem; }
+  .trust-item p { font-size: 0.79rem; color: var(--gray); line-height: 1.65; font-weight: 300; }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--mist); padding: 7rem 5%; }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 3.5rem; }
+  .testi-card {
+    background: var(--surface); border-radius: 20px; padding: 2rem;
+    border: 1px solid rgba(15,122,122,0.08);
+    transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden;
+  }
+  .testi-card::before {
+    content: '"'; position: absolute; top: -0.6rem; right: 1.2rem;
+    font-family: 'Fraunces', serif; font-size: 6rem; font-weight: 800;
+    color: rgba(15,122,122,0.06); line-height: 1;
+  }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(8,54,74,0.08); }
+  .stars { color: var(--aqua); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 1.5px; }
+  .testi-card blockquote { font-size: 0.9rem; line-height: 1.78; color: var(--ink); font-weight: 400; margin-bottom: 1.4rem; position: relative; z-index: 1; }
+  .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+  .author-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--grad); color: #fff; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .author-name { font-size: 0.8rem; font-weight: 700; color: var(--ink); }
+  .author-role { font-size: 0.7rem; color: var(--gray); }
+
+  /* ── CTA ── */
+  .cta-section { padding: 8rem 5%; text-align: center; background: var(--surface); position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 65% 70% at 50% 50%, rgba(59,208,165,0.1) 0%, transparent 60%); }
+  .cta-section .section-title { font-size: clamp(2.2rem, 4.5vw, 3.8rem); }
+  .cta-section .section-sub { margin: 0 auto 2.4rem; max-width: 460px; }
+
+  .cta-form { display: flex; gap: 0.7rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; position: relative; z-index: 1; }
+  .cta-input {
+    padding: 0.88rem 1.5rem; border: 1.5px solid rgba(15,122,122,0.2); border-radius: 100px;
+    font-family: 'Sora', sans-serif; font-size: 0.88rem; background: var(--bg);
+    color: var(--ink); width: 270px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .cta-input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(15,122,122,0.1); }
+  .cta-input::placeholder { color: var(--light-gray); }
+  .cta-note { font-size: 0.7rem; color: var(--light-gray); margin-top: 1.1rem; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--deep); padding: 4.5rem 5% 2.5rem; }
+  .footer-top {
+    display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem;
+    margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .footer-logo {
+    font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.8px;
+    background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    display: block; margin-bottom: 0.2rem;
+  }
+  .footer-tag-txt { font-size: 0.67rem; color: rgba(255,255,255,0.3); letter-spacing: 0.5px; margin-bottom: 0.95rem; }
+  .footer-brand p { font-size: 0.79rem; color: rgba(255,255,255,0.38); line-height: 1.75; font-weight: 300; max-width: 255px; }
+  .footer-socials { display: flex; gap: 0.7rem; margin-top: 1.3rem; }
+  .social-btn {
+    width: 33px; height: 33px; border-radius: 8px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 0.82rem; color: rgba(255,255,255,0.6);
+    font-weight: 700; font-family: 'Sora', sans-serif;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .social-btn:hover { background: rgba(59,208,165,0.15); border-color: rgba(59,208,165,0.4); color: var(--aqua); }
+
+  .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 1.2rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.62rem; }
+  .footer-col ul a { text-decoration: none; font-size: 0.79rem; color: rgba(255,255,255,0.52); transition: color 0.2s; }
+  .footer-col ul a:hover { color: var(--aqua); }
+
+  .footer-bottom { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
+  .footer-bottom p { font-size: 0.7rem; color: rgba(255,255,255,0.22); }
+  .footer-bottom a { color: rgba(255,255,255,0.22); text-decoration: none; }
+  .sebi-note { font-size: 0.67rem; color: rgba(255,255,255,0.18); max-width: 380px; text-align: right; line-height: 1.6; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes grow { from { width: 0%; } to { width: 68%; } }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .how-grid { grid-template-columns: repeat(2, 1fr); }
+    .how-grid::before { display: none; }
+    .feat-grid { grid-template-columns: repeat(2, 1fr); }
+    .feat-card.wide { grid-column: span 2; }
+  }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; text-align: center; }
+    .hero-desc { margin-left: auto; margin-right: auto; }
+    .hero-btns { justify-content: center; }
+    .hero-visual { margin-top: 3rem; }
+    .trust-strip { grid-template-columns: 1fr; gap: 1.5rem; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .feat-card.wide { grid-column: span 1; }
+    .feat-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .how-grid { grid-template-columns: 1fr; }
+    .footer-top { grid-template-columns: 1fr; }
+    .sebi-note { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <span class="nav-logo">InGood</span>
+    <span class="nav-tagline">Liquidity First. Investing Next.</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#cta" class="nav-cta">Start Investing</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="hero-tag">Self-Adjusting SIP · Surplus-Based Investing</span>
+    <h1>Smart, Flexible Investing Based on Your <em>Cash Flow</em></h1>
+    <p class="hero-desc">InGood helps you invest surplus funds automatically through a self-adjusting SIP that adapts to your real-life spending patterns — so you're always liquid, always growing.</p>
+    <div class="hero-btns">
+      <a href="#cta" class="btn-primary">Start Investing →</a>
+      <a href="#how" class="btn-ghost">See how it works</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div style="position:relative;">
+      <div class="float-card" style="top:-10px; right:-18px; animation-delay:-1.2s;">
+        <div class="float-val">₹4,200</div>
+        <div class="float-label">Surplus identified</div>
+      </div>
+      <div class="float-card" style="bottom:22px; left:-22px; animation-delay:-2.4s;">
+        <div class="float-val">Adjusted ↗</div>
+        <div class="float-label">SIP auto-updated</div>
+      </div>
+
+      <div class="dashboard-card">
+        <div class="card-header">
+          <span class="card-header-title">Self-Adjusting SIP</span>
+          <span class="card-badge">● ACTIVE</span>
+        </div>
+        <div class="sip-row">
+          <div class="sip-amount">₹8,400</div>
+          <div class="sip-change">↑ Dynamic</div>
+        </div>
+        <div class="sip-sub">Invested this month · Auto-adjusted</div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+        <div class="progress-label">
+          <span>₹5,712 in index funds</span><span>68%</span>
+        </div>
+        <div class="mini-list">
+          <div class="mini-item">
+            <div class="mini-item-left">
+              <div class="mini-icon" style="background:rgba(15,122,122,0.1);">💳</div>
+              <span class="mini-label">Card Spend Tracked</span>
+            </div>
+            <span class="mini-amount">₹38,200</span>
+          </div>
+          <div class="mini-item">
+            <div class="mini-item-left">
+              <div class="mini-icon" style="background:rgba(0,208,132,0.1);">📈</div>
+              <span class="mini-label">Surplus Detected</span>
+            </div>
+            <span class="mini-amount">₹12,600</span>
+          </div>
+          <div class="mini-item">
+            <div class="mini-item-left">
+              <div class="mini-icon" style="background:rgba(59,208,165,0.1);">🏦</div>
+              <span class="mini-label">Index Fund Allocated</span>
+            </div>
+            <span class="mini-amount">₹8,400</span>
+          </div>
+        </div>
+        <div class="surplus-chip">
+          <span class="surplus-label">💧 Liquidity Reserve Maintained</span>
+          <span class="surplus-val">₹4,200</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="reveal">
+    <p class="section-tag">The Process</p>
+    <h2 class="section-title">Four steps to <em>intelligent</em> investing</h2>
+    <p class="section-sub">InGood's Liquidity-First engine works quietly in the background — reading, analysing, and investing — while you live your life.</p>
+  </div>
+  <div class="how-grid">
+    <div class="step-card reveal">
+      <div class="step-num-wrap">01</div>
+      <div class="step-icon">🎚️</div>
+      <h3>Set your comfort limits</h3>
+      <p>Define your investment comfort zone — minimum liquidity to always hold, and the max you're okay investing. InGood respects these boundaries absolutely, every month.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:0.1s">
+      <div class="step-num-wrap">02</div>
+      <div class="step-icon">🧠</div>
+      <h3>Cash flow analysis</h3>
+      <p>InGood connects to your credit card and bank account to map spending patterns, income cycles, and monthly obligations — building a precise, live financial picture of your cash flow.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:0.18s">
+      <div class="step-num-wrap">03</div>
+      <div class="step-icon">🔍</div>
+      <h3>Surplus auto-detected</h3>
+      <p>Each month, the engine identifies exactly how much surplus sits beyond your spending and liquidity buffer. No guesswork, no rigid commitments — just real numbers.</p>
+    </div>
+    <div class="step-card reveal" style="transition-delay:0.26s">
+      <div class="step-num-wrap">04</div>
+      <div class="step-icon">📊</div>
+      <h3>Dynamic index fund allocation</h3>
+      <p>The surplus is automatically invested into low-cost index funds via your linked bank account — with the SIP amount adjusting dynamically every month based on your actual cash flow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-bg" id="features">
+  <div class="reveal">
+    <p class="section-tag">Why InGood</p>
+    <h2 class="section-title">Built around your <em>liquidity</em></h2>
+    <p class="section-sub">Every feature stems from one belief: your money should stay accessible first, and grow second — automatically.</p>
+  </div>
+  <div class="feat-grid">
+    <div class="feat-card wide reveal">
+      <div class="feat-icon-wrap">⚡</div>
+      <h3>Self-Adjusting SIP — No rigid monthly commitment</h3>
+      <p>Unlike traditional SIPs with fixed amounts that drain your account on tough months, InGood's SIP adapts in real-time. High-spend month? It invests less. Surplus month? It invests more. Your investment always fits your life — not the other way around.</p>
+    </div>
+    <div class="feat-card reveal" style="transition-delay:0.08s">
+      <div class="feat-icon-wrap">💧</div>
+      <h3>Liquidity-First Investing</h3>
+      <p>InGood never compromises your liquidity. Your reserve is always protected — investments only happen from genuine surplus, never from your safety net.</p>
+    </div>
+    <div class="feat-card reveal" style="transition-delay:0.14s">
+      <div class="feat-icon-wrap">💳</div>
+      <h3>Credit card + cash flow integration</h3>
+      <p>InGood reads your credit card statements to map spending and identify exactly how much you can comfortably invest each month without disrupting your lifestyle.</p>
+    </div>
+    <div class="feat-card reveal" style="transition-delay:0.08s">
+      <div class="feat-icon-wrap">📈</div>
+      <h3>Index fund-based investing</h3>
+      <p>All investments go into low-cost, diversified index funds — proven to outperform most actively managed funds over the long run, with minimal fees eating into your returns.</p>
+    </div>
+    <div class="feat-card reveal" style="transition-delay:0.14s">
+      <div class="feat-icon-wrap">🔍</div>
+      <h3>Automatic surplus detection</h3>
+      <p>No manual calculation. InGood identifies investable surplus by analysing income, committed expenses, and real spending — automatically, every single month.</p>
+    </div>
+    <div class="feat-card reveal" style="transition-delay:0.2s">
+      <div class="feat-icon-wrap">📡</div>
+      <h3>Real-time tracking & transparency</h3>
+      <p>See every adjustment, every investment, every surplus detection in real-time. Full transparency into how InGood manages your money — always, with no surprises.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item reveal">
+    <div class="trust-icon-wrap">🎯</div>
+    <div>
+      <h4>Built to reduce SIP drop-offs</h4>
+      <p>Traditional SIPs fail because they're rigid. InGood is designed from the ground up to adapt — so you never have to pause or cancel an SIP due to a tough month.</p>
+    </div>
+  </div>
+  <div class="trust-item reveal" style="transition-delay:0.1s">
+    <div class="trust-icon-wrap">🔄</div>
+    <div>
+      <h4>Improved investment consistency</h4>
+      <p>Early users report significantly more consistent investing behaviour — because InGood removes the friction of deciding how much to invest each month.</p>
+    </div>
+  </div>
+  <div class="trust-item reveal" style="transition-delay:0.2s">
+    <div class="trust-icon-wrap">🌊</div>
+    <div>
+      <h4>Designed for dynamic cash flows</h4>
+      <p>Freelancers, salaried professionals, business owners — InGood works for anyone whose income or expenses don't follow a perfect monthly pattern.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="reveal">
+    <p class="section-tag">Early Voices</p>
+    <h2 class="section-title">People who invest <em>smarter</em> now</h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Finally an investing system that adjusts to how I actually spend every month. I used to dread SIP dates — now I don't even think about it."</blockquote>
+      <div class="testi-author">
+        <div class="author-avatar">W</div>
+        <div>
+          <div class="author-name">Working Professional</div>
+          <div class="author-role">Early InGood User</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:0.1s">
+      <div class="stars">★★★★★</div>
+      <blockquote>"I no longer worry about missing SIPs. It just works in the background. My investments are growing steadily without me doing anything."</blockquote>
+      <div class="testi-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Salaried Investor</div>
+          <div class="author-role">Early InGood User</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card reveal" style="transition-delay:0.2s">
+      <div class="stars">★★★★★</div>
+      <blockquote>"This is how investing should have always worked. Liquidity first, then invest the rest. Simple, smart, and completely automatic."</blockquote>
+      <div class="testi-author">
+        <div class="author-avatar">F</div>
+        <div>
+          <div class="author-name">First-time Investor</div>
+          <div class="author-role">Early InGood User</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+  <div class="reveal">
+    <p class="section-tag">Liquidity First. Investing Next.</p>
+    <h2 class="section-title">Your surplus is waiting to <em>work for you.</em></h2>
+    <p class="section-sub">Enter your email and get early access to InGood's self-adjusting SIP — built around your cash flow, not the other way around.</p>
+    <div class="cta-form">
+      <input class="cta-input" type="email" placeholder="you@example.com" />
+      <a href="https://www.ingood.com" class="btn-primary">Start Investing →</a>
+    </div>
+    <p class="cta-note">No rigid commitments. No hidden fees. Liquidity always protected.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">InGood</span>
+      <p class="footer-tag-txt">Liquidity First. Investing Next.</p>
+      <p>Automating India's investments around real cash flow — so your money always stays liquid first, and grows next. Mumbai, India.</p>
+      <div class="footer-socials">
+        <a href="https://in.linkedin.com/company/ingood-finserv-private-limited" target="_blank" class="social-btn" title="LinkedIn">in</a>
+        <a href="https://x.com/IngoodFin" target="_blank" class="social-btn" title="X / Twitter">𝕏</a>
+        <a href="https://www.instagram.com/ingoodfinserv/" target="_blank" class="social-btn" title="Instagram">ig</a>
+        <a href="https://www.facebook.com/people/InGood/61588520924862/" target="_blank" class="social-btn" title="Facebook">fb</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#features">Self-Adjusting SIP</a></li>
+        <li><a href="#features">Surplus Detection</a></li>
+        <li><a href="#features">Index Fund Investing</a></li>
+        <li><a href="https://www.ingood.com">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://www.ingood.com">About InGood</a></li>
+        <li><a href="https://www.ingood.com">Blog</a></li>
+        <li><a href="https://www.ingood.com">Careers</a></li>
+        <li><a href="https://www.ingood.com">Press</a></li>
+        <li><a href="https://www.ingood.com">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="https://www.ingood.com">Privacy Policy</a></li>
+        <li><a href="https://www.ingood.com">Terms of Service</a></li>
+        <li><a href="https://www.ingood.com">SEBI Disclosure</a></li>
+        <li><a href="https://www.ingood.com">Security</a></li>
+        <li><a href="https://www.ingood.com">Grievances</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 InGood Finserv Pvt. Ltd. · Mumbai, India · <a href="https://www.ingood.com">ingood.com</a></p>
+    <p class="sebi-note">Mutual fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. InGood Finserv Pvt. Ltd., Mumbai, India.</p>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
